@@ -19,7 +19,8 @@
           "options": {
             "allowedCommonJsDependencies": ["leaflet"],
             "outputPath": "docs",
-            "baseHref": "/dashboard-comercial-bra-eua/",
+            "baseHref": "/dashboard-comercial/",
+            "deployUrl": "/dashboard-comercial/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
