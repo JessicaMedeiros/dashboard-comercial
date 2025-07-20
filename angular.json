@@ -28,13 +28,18 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                 "output": "/assets/leaflet/"
               }
             ],
             "styles": [
+              "node_modules/leaflet/dist/leaflet.css",
+               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "77d6878f-7952-41b7-9021-79979f8d4b41"
   }
 }

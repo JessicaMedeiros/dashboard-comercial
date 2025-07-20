@@ -1,0 +1,30 @@
+.country-path {
+  pointer-events: auto;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+
+  &:hover {
+    stroke-width: 2px;
+  }
+}
+
+.leaflet-container {
+  background: #f8f9fa !important;
+}
+
+/* mapa-comercial.component.scss */
+.map-container {
+  height: 600px;
+  width: 100%;
+  position: relative;
+  
+  #map {
+    height: 100%;
+    width: 100%;
+    background: #f0f2f5;
+    
+    // /* Garante que os elementos do mapa não ultrapassem os limites */
+    // overflow: hidden;
+    // border-radius: 8px;
+    // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+}
