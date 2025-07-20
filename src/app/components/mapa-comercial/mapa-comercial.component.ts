@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import * as L from 'leaflet';
 import { ComexstatService } from '../../services/comexstat.service';
-import worldGeoJSON from '../../../assets/paises.json';
+import worldGeoJSON from '../../../assets/paises.json'; // Importa o GeoJSON dos países
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -83,7 +83,7 @@ export class MapaComercialComponent implements OnInit, OnDestroy {
 
   private loadExportData(): void {
     this.dataSubscription = this.comexService.getExportacoesPorPais('2025-01', '2025-03')
-      .subscribe(data => {
+      .subscribe((data: any[]) => {
         this.processExportData(data);
         this.updateMapStyles();
       });

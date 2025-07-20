@@ -3,12 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-interface ComexPais {
-  countryCode: string; // código ISO (ex: USA, BRA)
-  countryName: string;
-  value: number; // valor em US$
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +19,7 @@ export class ComexstatService {
       metrics: ['metricFOB']
     };
     return this.http.post<any>(this.url, payload).pipe(
-      map(res => res.data.list.map((item: any) => ({
+      map((res: { data: { list: any[]; }; }) => res.data.list.map((item: any) => ({
         year: item.year,
         month: item.monthNumber,
         value: Number(item.metricFOB)
@@ -41,7 +35,7 @@ export class ComexstatService {
       metrics: ['metricFOB']
     };
     return this.http.post<any>(this.url, payload).pipe(
-      map(res => 
+      map((res: { data: { list: any[]; }; }) => 
         res.data.list.map((item: any) => ({
         year: item.year,
         month: item.monthNumber,
@@ -62,7 +56,7 @@ export class ComexstatService {
   };
 
   return this.http.post<any>(url, payload).pipe(
-    map(res => {
+    map((res: { data: { list: never[]; }; }) => {
       const data = res?.data?.list ?? [];
       return data.map((item: any) => ({
         country:  item.country,

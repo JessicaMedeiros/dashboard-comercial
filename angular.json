@@ -18,9 +18,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": ["leaflet"],
-            "outputPath": "docs",
-            "baseHref": "/dashboard-comercial/",
-            "deployUrl": "/dashboard-comercial/",
+            "outputPath": "dist",
+            "baseHref": "/",
+            "deployUrl": "/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -29,9 +29,19 @@
               "src/favicon.ico",
               "src/assets",
               {
-                "glob": ".nojekyll",
+                "glob": "**/*",
                 "input": "public",
                 "output": "/assets/leaflet/"
+              },
+              {
+                "glob": ".nojekyll",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "404.html",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
@@ -40,13 +50,19 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/@popperjs/core/dist/umd/popper.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
