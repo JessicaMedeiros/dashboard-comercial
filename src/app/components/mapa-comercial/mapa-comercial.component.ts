@@ -21,6 +21,7 @@ export class MapaComercialComponent implements OnInit, OnDestroy {
     private comexService: ComexstatService,
     private elementRef: ElementRef
   ) { }
+  
 
   ngOnInit(): void {
     if (!this.initialized) {
